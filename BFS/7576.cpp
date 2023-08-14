@@ -53,6 +53,5 @@ int main()
             q.push({nx, ny});
         }
     }
-
     cout << ft_check();
 }
