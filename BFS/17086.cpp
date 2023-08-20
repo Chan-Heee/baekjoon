@@ -36,12 +36,9 @@ int main()
             if (dist[nx][ny] || board[nx][ny])
                 continue;
             dist[nx][ny] = dist[cur.first][cur.second] + 1;
+            MAX = max(MAX, dist[nx][ny]);
             q.push({nx, ny});
         }
     }
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            MAX = max(MAX, dist[i][j]);
-
     cout << MAX;
 }
