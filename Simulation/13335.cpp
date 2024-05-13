@@ -17,31 +17,22 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cin >> truck[i];
-    }
-    for (int i = 0; i < n; i++)
-    {
-
-        while (cur_weight + truck[i] > l)
+        while (1)
         {
+            if (bridge.size() == (w))
             {
-                bridge.push_back(0);
-                ans++;
-                if (bridge.size() == (w))
-                {
-                    cur_weight -= bridge.front();
-                    bridge.pop_front();
-                }
+                cur_weight -= bridge.front();
+                bridge.pop_front();
             }
+            if (cur_weight + truck[i] <= l)
+                break;
+            bridge.push_back(0);
+            ans++;
         }
 
         cur_weight += truck[i];
         bridge.push_back(truck[i]);
         ans++;
-        if (bridge.size() == (w))
-        {
-            cur_weight -= bridge.front();
-            bridge.pop_front();
-        }
     }
     ans += w;
     cout << ans;
