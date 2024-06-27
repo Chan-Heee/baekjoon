@@ -1,18 +1,18 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
+int ans[500];
 
-int alpha[26];
 int main()
 {
-    string in;
-    cin >> in;
+    string s;
+    cin >> s;
 
-    for (int i = 0; i < in.size(); i++)
-        alpha[in[i] - 'a']++;
-    for (int i = 0; i < 26; i++)
+    for (int i = 0; i < s.length(); i++)
     {
-        cout << alpha[i] << " ";
+        int k = s[i];
+        ans[k]++;
     }
+    for (int i = 'a'; i <= 'z'; i++)
+        cout << ans[i] << " ";
 }
