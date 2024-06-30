@@ -3,24 +3,21 @@
 using namespace std;
 
 int n, k;
-int t[100004];
-int ans;
+int psum[100004];
+int ans = -10000004;
 
 int main()
 {
     cin >> n >> k;
-
-    cin >> t[0];
-    for (int i = 1; i < n; i++)
+    for (int i = 1, tmp; i <= n; i++)
     {
-        cin >> t[i];
-        t[i] += t[i - 1];
+        cin >> tmp;
+        psum[i] = psum[i - 1] + tmp;
     }
 
-    ans = t[k - 1];
-    for (int i = 1; i <= n - k; i++)
+    for (int i = k; i <= n; i++)
     {
-        ans = max(ans, (t[i + k - 1] - t[i - 1]));
+        ans = max(ans, psum[i] - psum[i - k]);
     }
     cout << ans;
 }
