@@ -5,22 +5,22 @@ int r, c, ans;
 char board[34][34];
 int dx[4] = {0, 0, 1, -1};
 int dy[4] = {1, -1, 0, 0};
-map<char, int> visited;
+int visited[30];
 string s;
 
 void dfs(int y, int x, int sum)
 {
-    visited[board[y][x]] = 1;
+    visited[board[y][x] - 'A'] = 1;
     ans = max(sum, ans);
     for (int i = 0; i < 4; i++)
     {
         int ny = dy[i] + y;
         int nx = dx[i] + x;
 
-        if (ny < 0 || nx < 0 || ny >= r || nx >= c || visited[board[ny][nx]])
+        if (ny < 0 || nx < 0 || ny >= r || nx >= c || visited[board[ny][nx] - 'A'])
             continue;
         dfs(ny, nx, sum + 1);
-        visited[board[ny][nx]] = 0;
+        visited[board[ny][nx] - 'A'] = 0;
     }
 }
 
