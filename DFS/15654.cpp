@@ -7,7 +7,7 @@ vector<int> v;
 int visited[12];
 vector<int> ret;
 
-void dfs(int cnt)
+void dfs(int cnt, int last)
 {
     if (cnt == m)
     {
@@ -18,12 +18,10 @@ void dfs(int cnt)
     }
     for (int i = 0; i < v.size(); i++)
     {
-        if (!visited[i])
+        if (last <= v[i])
         {
             ret.push_back(v[i]);
-            visited[i] = 1;
-            dfs(cnt + 1);
-            visited[i] = 0;
+            dfs(cnt + 1, v[i]);
             ret.pop_back();
         }
     }
@@ -38,5 +36,6 @@ int main()
         v.push_back(tmp);
     }
     sort(v.begin(), v.end());
-    dfs(0);
+    v.erase(unique(v.begin(), v.end()), v.end());
+    dfs(0, -1);
 }
