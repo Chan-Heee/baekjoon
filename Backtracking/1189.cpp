@@ -16,6 +16,7 @@ void go(int cnt, int y, int x)
     {
         if (y == 0 && x == c - 1 && visited[y][x])
             ans++;
+        return;
     }
     for (int i = 0; i < 4; i++)
     {
