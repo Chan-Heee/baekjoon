@@ -2,7 +2,6 @@
 
 using namespace std;
 int n;
-
 void printStar(int cur, int y, int x)
 {
     if (cur == 3)
@@ -14,7 +13,7 @@ void printStar(int cur, int y, int x)
         return;
     }
     if (y % 3 == 1 && x % 3 == 1)
-        printStar(cur / 3, y, x);
+        cout << ' ';
     else
         printStar(cur / 3, y / 3, x / 3);
 }
